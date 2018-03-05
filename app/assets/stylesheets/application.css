@@ -12,4 +12,52 @@
  *
  *= require_tree .
  *= require_self
+ *= require font-awesome
  */
+
+body {
+	margin: 0;
+	padding: 0;
+}
+
+ul, ol {
+	list-style: none;
+}
+
+.container {
+	max-width: 100%;
+	padding: 0 10px;
+}
+
+.clearfix:after {
+        visibility: hidden;
+        display: block;
+        content: "";
+        clear: both;
+        height: 0;
+        font-size: 0;
+}
+
+.align-left {
+  float: left;
+}
+
+.align-right {
+  float: right;
+}
+
+.nav {
+	max-width: 100%;
+	background-color: #CBE3FB;
+	padding: 0 20px;
+}
+
+.nav .fa-grav {
+	font-size: 2.8em;
+	color: #f7993d;
+	padding-top: 4px;
+}
+
+.list-item {
+	display: inline-block;
+}
