@@ -1,1 +1,1 @@
-# news_aggregation_app
+# Simple news aggregator application
