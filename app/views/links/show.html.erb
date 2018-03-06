@@ -1,41 +1,51 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @link.title %>
-</p>
+<div class="content-link">
+  <h2 class="link-title"><%= link_to @link.title, @link.url  %></h2>
 
-<p>
-  <strong>Url:</strong>
-  <%= @link.url %>
-</p>
+  <span class="content-url">
+    (<%= link_to @link.url, @link.url, target: :blank %>)
+  </span>
 
-<%= link_to 'Edit', edit_link_path(@link) %> |
-<%= link_to 'Back', links_path %>
+  <p class='submit-info'>
+    <small>Submitted <strong><%= time_ago_in_words(@link.created_at) %> ago</strong> by <%= @link.user.username %></small>
+  </p>
 
-<br>
+  <div class="link-actions">
+    <%= link_to 'Back', links_path %>
+    <% if @link.user == current_user %>
+      |
+    	<%= link_to 'Edit', edit_link_path(@link), class: "btn btn-default" %>
+      |
+    	<%= link_to 'Delete', @link, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-default" %>
+      |
+    <% end %>
+  </div>
 
-<%= link_to like_link_path(@link), method: :put do %>
-  upvote
-  <%= @link.get_upvotes.size %>
-<% end %>
+  <div class="unvoted">
+    <%= link_to like_link_path(@link), method: :put, class: 'unvoted-counter' do %>
+      <%= fa_icon "arrow-up" %>
+      <%= @link.get_upvotes.size %>
+    <% end %>
+    <%= link_to dislike_link_path(@link), method: :put, class: 'unvoted-counter' do %>
+      <%= fa_icon "arrow-down" %>
+      <%= @link.get_downvotes.size %>
+    <% end %>
+  </div>
+</div>
 
-<%= link_to dislike_link_path(@link), method: :put do %>
-  downvote
-  <%= @link.get_downvotes.size %>
-<% end %>
+<div class="comments-block">
+  <h3><%= @link.comments.length %> Comments</h3>
 
-<h3>
-  <%= @link.comments.length %>
-  Comments
-</h3>
+  <%= render partial: @link.comments %>
 
-<%= render partial: @link.comments %>
+  <div class="add-comment">
+    <h3>Add comment</h3>
 
-<h3>Add comment</h3>
-
-<%= simple_form_for [@link, Comment.new] do |f| %>
-  <%= f.text_area :body %>
-  <br>
-  <%= f.submit 'Add comment' %>
-<% end %>
+    <%= simple_form_for [@link, Comment.new] do |f| %>
+      <%= f.text_area :body, rows: 14, cols: 80 %>
+      <br>
+      <%= f.submit 'Add comment', class: 'comment-btn' %>
+    <% end %>
+  </div>
+</div>

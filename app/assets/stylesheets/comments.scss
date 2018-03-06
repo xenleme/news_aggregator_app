@@ -1,0 +1,47 @@
+.comments-block {
+  margin-top: 35px;
+
+  h3 {
+    font-size: 1.33em;
+  }
+}
+
+.comment {
+  max-width: 860px;
+  position: relative;
+  margin-bottom: 30px;
+
+  &:hover {
+    .delete-comment{
+      left: 0
+    }
+  }
+}
+
+.comment-body {
+  font-size: 1.06em;
+  border-left: 2px solid #666;
+  padding-left: 4px;
+}
+
+.delete-comment {
+  position: absolute;
+  left: -10000px;
+}
+
+.add-comment {
+  margin-top: 20px;
+  border-top: 1px solid #f7993d;
+}
+
+.add-comment {
+  textarea {
+    font-size: 1.05em;
+    padding: 5px 0 0 5px;
+    margin-bottom: 10px;
+  }
+}
+
+.comment-btn {
+  font-size: 1.2em;
+}
