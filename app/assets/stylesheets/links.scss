@@ -1,3 +1,39 @@
 // Place all the styles related to the Links controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.content {
+  margin-bottom: 2.7em;
+}
+
+.link-title {
+  display: inline-block;
+  margin-right: .4em;
+}
+
+.unvoted {
+  display: inline-block;
+  font-size: 2em;
+  margin-right: .6em;
+}
+
+.unvoted-counter {
+  display: block;
+  text-decoration: none;
+}
+
+.content-link {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.index-number {
+  display: inline-block;
+  font-size: 1.5em;
+  vertical-align: top;
+  margin: 16px 10px 0 0;
+}
+
+.submit-info {
+  line-height: 5px;
+}

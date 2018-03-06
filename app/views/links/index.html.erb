@@ -1,38 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Links</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @links.each do |link| %>
-      <tr>
-        <td><%= link.title %></td>
-        <td><%= link.url %></td>
-        <td><%= link_to 'Show', link %></td>
-
-        <% if link.user == current_user %>
-          <td><%= link_to 'Edit', edit_link_path(link) %></td>
-          <td><%= link_to 'Destroy', link, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% @links.each_with_index do |link, index| %>
+    <div class="content">
+      <span class="index-number"><%= index + 1 %></span>
+      <div class="unvoted">
+        <%= link_to like_link_path(link), method: :put, class: 'unvoted-counter' do %>
+          <%= fa_icon "arrow-up" %>
+          <%= link.get_upvotes.size %>
         <% end %>
-      </tr>
+        <%= link_to dislike_link_path(link), method: :put, class: 'unvoted-counter' do %>
+          <%= fa_icon "arrow-down" %>
+          <%= link.get_downvotes.size %>
+        <% end %>
+      </div>
 
-      <%= link_to like_link_path(link), method: :put do %>
-        upvote
-        <%= link.get_upvotes.size %>
-      <% end %>
-
-      <%= link_to dislike_link_path(link), method: :put do %>
-        downvote
-        <%= link.get_downvotes.size %>
-      <% end %>
-    <% end %>
-  </tbody>
-</table>
+      <div class="content-link">
+        <h2 class="link-title"><%= link_to truncate(link.title, length: 70), link  %></h2>
+        <span class="content-url">
+          (<%= link_to truncate(link.url, length: 30), link.url, target: :blank %>)
+        </span>
+        <p class='submit-info'>
+          <small>Submitted <strong><%= time_ago_in_words(link.created_at) %> ago</strong> by <%= link.user.username %></small>
+        </p>
+      </div>
+    </div>
+  <% end %>
