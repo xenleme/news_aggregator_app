@@ -39,12 +39,21 @@ ul, ol {
         font-size: 0;
 }
 
+
 .align-left {
   float: left;
 }
 
 .align-right {
   float: right;
+}
+
+.logo {
+	display: inline-block;
+}
+
+.logo-link:hover {
+	background-color: transparent;
 }
 
 .nav {

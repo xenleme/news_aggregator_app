@@ -10,7 +10,9 @@
 
   <body>
     <nav class="nav clearfix">
-      <%= fa_icon "grav" %>
+      <div class="logo">
+        <%= link_to fa_icon("grav"), links_path, class: 'logo-link' %>
+      </div>
       <% if user_signed_in? %>
         <ul class="nav-list align-right">
           <li class="list-item">Hello, <%= link_to current_user.username, edit_user_registration_path %></li> |
