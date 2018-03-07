@@ -48,6 +48,10 @@ ul, ol {
   float: right;
 }
 
+.uppercase {
+	text-transform: uppercase;
+}
+
 .logo {
 	display: inline-block;
 }
@@ -69,5 +73,20 @@ ul, ol {
 }
 
 .list-item {
+	display: inline-block;
+}
+
+.form-input {
+	width: 200px;
+	font-size: 1em;
+	border-radius: 2px;
+	padding: 1px 0 3px 3px;
+}
+
+.submit-btn {
+  font-size: 1.2em;
+}
+
+label[for=user_remember_me] {
 	display: inline-block;
 }

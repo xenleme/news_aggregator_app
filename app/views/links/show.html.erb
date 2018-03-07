@@ -45,7 +45,7 @@
       <%= simple_form_for [@link, Comment.new] do |f| %>
         <%= f.text_area :body, rows: 14, cols: 80 %>
         <br>
-        <%= f.submit 'Add comment', class: 'comment-btn' %>
+        <%= f.submit 'Add comment', class: 'submit-btn' %>
       <% end %>
     <% else %>
       <h3>

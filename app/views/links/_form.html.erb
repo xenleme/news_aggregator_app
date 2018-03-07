@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= form.label :title %>
-    <%= form.text_field :title, id: :link_title %>
+    <%= form.text_field :title, id: :link_title, class: 'form-input' %>
   </div>
 
   <div class="field">
-    <%= form.label :url %>
-    <%= form.text_field :url, id: :link_url %>
+    <%= form.label :url, class: 'uppercase' %>
+    <%= form.text_field :url, id: :link_url, class: 'form-input' %>
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: 'submit-btn' %>
   </div>
 <% end %>
