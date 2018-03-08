@@ -15,7 +15,7 @@
  *= require font-awesome
  */
 
-body, p, h1, h3 {
+body, p, h1, h2, h3, ul {
 	margin: 0;
 	padding: 0;
 }
@@ -39,7 +39,6 @@ ul, ol {
         font-size: 0;
 }
 
-
 .align-left {
   float: left;
 }
@@ -56,6 +55,21 @@ ul, ol {
 	display: inline-block;
 }
 
+.thumb-avatar img {
+	vertical-align: middle;
+	margin-right: 5px;
+	border-radius: 3px;
+}
+
+.avatar {
+	border-radius: 6px;
+}
+
+.thumb-avatar a:hover {
+	background-color: transparent;
+	opacity: .5;
+}
+
 .logo-link:hover {
 	background-color: transparent;
 }
@@ -69,7 +83,11 @@ ul, ol {
 .nav .fa-grav {
 	font-size: 2.8em;
 	color: #f7993d;
-	padding-top: 4px;
+	padding: 7px 0;
+}
+
+.nav-list {
+	margin-top: 15px;
 }
 
 .list-item {

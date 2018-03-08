@@ -4,7 +4,8 @@
 
 .link-title {
   display: inline-block;
-  margin-right: .4em;
+  margin: 16px 7px 5px 0;
+  line-height: 28px;
 }
 
 .unvoted {
@@ -21,6 +22,11 @@
 .content-link {
   display: inline-block;
   vertical-align: top;
+}
+
+.content-url {
+  display: inline-block;
+  margin-bottom: 5px;
 }
 
 .index-number {

@@ -1,6 +1,6 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
+<h2 class="title-lg">Edit <%= resource_name.to_s.humanize %></h2>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put, multipart: true }) do |f| %>
   <%= devise_error_messages! %>
 
   <div class="field">
@@ -11,6 +11,11 @@
   <div class="field">
     <%= f.label :username %>
     <%= f.text_field :username, autocomplete: "off", class: 'form-input' %>
+  </div>
+
+  <div class="field">
+    <%= f.label :avatar %>
+    <%= f.file_field :avatar %>
   </div>
 
   <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -43,7 +48,7 @@
 
 <hr>
 
-<h3>Cancel my account</h3>
+<h3 class="title-sm">Cancel my account</h3>
 
 <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'submit-btn' %></p>
 <br>

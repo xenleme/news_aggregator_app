@@ -1,28 +1,38 @@
-<h1 class="title-lg"><%= @user.username %></h1>
+<div class="user-info align-left">
+  <%= image_tag @user.avatar.url(:medium), class: 'avatar' %>
 
-<%= link_to 'Back', links_path %>
-<% if @user == current_user %>
-  |
-  <%= link_to 'Edit profile', edit_user_registration_path %>
-<% end %>
+  <h1 class="title-lg">@<%= @user.username %></h1>
+
+  <%= link_to 'Back', links_path %>
+  <% if @user == current_user %>
+    |
+    <%= link_to 'Edit profile', edit_user_registration_path %>
+  <% end %>
+</div>
 
 <br>
-<br>
+
 <div class="user-links">
-  <h2 class="title-sm">All links:</h2>
+  <% if @user.links.empty? %>
+    <h2 class="title-sm">You have not added any links yet</h2>
+    <h4>Want submit <%= link_to 'link', new_link_path %>?</h4>
+  <% else %>
+    <h2 class="title-sm">All links:</h2>
 
-  <ol class="all-links">
-    <% @user.links.each do |link| %>
-      <li class="content-link">
-        <h2 class="link-title"><%= link_to link.title, link  %></h2>
-        <span class="content-url">
-          (<%= link_to link.url, link.url, target: :blank %>)
-        </span>
-        <p class='submit-info'>
-          <small>Submitted <strong><%= time_ago_in_words(link.created_at) %> ago</strong></small>
-        </p>
-      </li>
-      <br>
-    <% end %>
-  </ol>
+    <ol class="all-links">
+      <% @user.links.each do |link| %>
+        <li class="content-link">
+          <h2 class="link-title"><%= link_to truncate(link.title, length: 70), link  %></h2>
+          <span class="content-url">
+            (<%= link_to truncate(link.url, length: 30), link.url, target: :blank %>)
+          </span>
+          <p class='submit-info'>
+            <small>Submitted <strong><%= time_ago_in_words(link.created_at) %> ago</strong></small>
+          </p>
+        </li>
+        <br>
+
+      <% end %>
+    </ol>
+  <% end %>
 </div>
