@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :comments
   devise_for :users
 
   resources :links do
@@ -9,6 +8,9 @@ Rails.application.routes.draw do
     end
     resources :comments
   end
+
+  resources :comments
+  resources :users, only: [:show]
 
   root to: 'links#index'
 end

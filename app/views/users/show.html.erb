@@ -1,0 +1,28 @@
+<h1 class="title-lg"><%= @user.username %></h1>
+
+<%= link_to 'Back', links_path %>
+<% if @user == current_user %>
+  |
+  <%= link_to 'Edit profile', edit_user_registration_path %>
+<% end %>
+
+<br>
+<br>
+<div class="user-links">
+  <h2 class="title-sm">All links:</h2>
+
+  <ol class="all-links">
+    <% @user.links.each do |link| %>
+      <li class="content-link">
+        <h2 class="link-title"><%= link_to link.title, link  %></h2>
+        <span class="content-url">
+          (<%= link_to link.url, link.url, target: :blank %>)
+        </span>
+        <p class='submit-info'>
+          <small>Submitted <strong><%= time_ago_in_words(link.created_at) %> ago</strong></small>
+        </p>
+      </li>
+      <br>
+    <% end %>
+  </ol>
+</div>

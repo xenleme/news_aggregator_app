@@ -8,7 +8,7 @@
   </span>
 
   <p class='submit-info'>
-    <small>Submitted <strong><%= time_ago_in_words(@link.created_at) %> ago</strong> by <%= @link.user.username %></small>
+    <small>Submitted <strong><%= time_ago_in_words(@link.created_at) %> ago</strong> by <%= link_to @link.user.username, user_path(@link.user) %></small>
   </p>
 
   <div class="link-actions">
@@ -34,13 +34,13 @@
 </div>
 
 <div class="comments-block">
-  <h3><%= @link.comments.length %> Comments</h3>
+  <h3 class="title-sm"><%= @link.comments.length %> Comments</h3>
 
   <%= render partial: @link.comments %>
 
   <div class="add-comment">
     <% if @link.user == current_user %>
-      <h3>Add comment</h3>
+      <h3 class="title-sm">Add comment</h3>
 
       <%= simple_form_for [@link, Comment.new] do |f| %>
         <%= f.text_area :body, rows: 14, cols: 80 %>

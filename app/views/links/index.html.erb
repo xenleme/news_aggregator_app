@@ -20,7 +20,7 @@
         (<%= link_to truncate(link.url, length: 30), link.url, target: :blank %>)
       </span>
       <p class='submit-info'>
-        <small>Submitted <strong><%= time_ago_in_words(link.created_at) %> ago</strong> by <%= link.user.username %></small>
+        <small>Submitted <strong><%= time_ago_in_words(link.created_at) %> ago</strong> by <%= link_to link.user.username, user_path(link.user) %></small>
       </p>
     </div>
   </div>
