@@ -7,6 +7,8 @@
 # Ignore bundler config.
 /.bundle
 
+*.DS_Store
+
 # Ignore the default SQLite database.
 /db/*.sqlite3
 /db/*.sqlite3-journal
@@ -16,7 +18,7 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+/public/system
 /node_modules
 /yarn-error.log
 
