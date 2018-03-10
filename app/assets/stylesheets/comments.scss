@@ -19,9 +19,12 @@
 }
 
 .comment-body {
+  max-height: 300px;
+  overflow-y: scroll;
   font-size: 1.06em;
   border-left: 2px solid #666;
   padding-left: 4px;
+  margin-bottom: 6px;
 }
 
 .delete-comment {
