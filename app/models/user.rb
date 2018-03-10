@@ -4,7 +4,6 @@ class User < ApplicationRecord
 
   validates :email, :username, presence: true, uniqueness: true
   validates :username, length: { maximum: 150 }
-  validates :password, length: { in: 6..50 }
 
   has_many :links
 
