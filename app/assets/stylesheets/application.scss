@@ -15,13 +15,38 @@
  *= require font-awesome
  */
 
-body, p, h1, h2, h3, ul {
+body, p, h1, h2, h3, ul, ol {
 	margin: 0;
 	padding: 0;
 }
 
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
 ul, ol {
 	list-style: none;
+}
+
+a {
+  color: #000;
+
+  &:visited {
+    color: #666;
+  }
+
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+#notice {
+  color: green;
 }
 
 .container {
@@ -51,8 +76,16 @@ ul, ol {
 	text-transform: uppercase;
 }
 
-.logo {
+.logo, .list-item {
 	display: inline-block;
+}
+
+.logo-link:hover {
+	background-color: transparent;
+}
+
+.avatar {
+	border-radius: 6px;
 }
 
 .thumb-avatar img {
@@ -61,17 +94,18 @@ ul, ol {
 	border-radius: 3px;
 }
 
-.avatar {
-	border-radius: 6px;
-}
 
 .thumb-avatar a:hover {
 	background-color: transparent;
 	opacity: .5;
 }
 
-.logo-link:hover {
-	background-color: transparent;
+.title-lg {
+	margin: 15px 0 10px;
+}
+
+.title-sm {
+	margin: 10px 0 12px;
 }
 
 .nav {
@@ -90,29 +124,52 @@ ul, ol {
 	margin-top: 15px;
 }
 
-.list-item {
-	display: inline-block;
-}
-
-.title-lg {
-	margin: 15px 0 10px;
-}
-
-.title-sm {
-	margin: 10px 0 12px;
-}
-
 .form-input {
 	width: 200px;
 	font-size: 1em;
 	border-radius: 2px;
 	padding: 1px 0 3px 3px;
+	margin-bottom: 10px;
 }
 
 .submit-btn {
   font-size: 1.2em;
+	margin-bottom: 10px;
 }
 
 label[for=user_remember_me] {
 	display: inline-block;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px 7px 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px -7px 0;
+    background-color: #c00;
+    color: #fff;
+  }
+
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+label {
+  display: block;
 }
