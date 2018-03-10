@@ -4,7 +4,7 @@
   <h2 class="link-title"><%= link_to @link.title, @link.url  %></h2>
 
   <span class="content-url">
-    (<%= link_to truncate(@link.url, length: 30), @link.url, target: :blank %>)
+    (<%= truncated_url_title(@link) %>)
   </span>
 
   <p class='submit-info'>
@@ -39,7 +39,7 @@
   <%= render partial: @link.comments %>
 
   <div class="add-comment">
-    <% if @link.user == current_user %>
+    <% if user_signed_in? %>
       <h3 class="title-sm">Add comment</h3>
 
       <%= simple_form_for [@link, Comment.new] do |f| %>
@@ -47,6 +47,7 @@
         <br>
         <%= f.submit 'Add comment', class: 'submit-btn' %>
       <% end %>
+
     <% else %>
       <h3 class="title-sm">
         If you want to leave a comment, please <%= link_to 'Sign in', new_user_session_path %>

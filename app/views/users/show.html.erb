@@ -22,9 +22,9 @@
     <ol class="all-links">
       <% @user.links.each do |link| %>
         <li class="content-link">
-          <h2 class="link-title"><%= link_to truncate(link.title, length: 70), link  %></h2>
+          <h2 class="link-title"><%= truncated_link_title(link)  %></h2>
           <span class="content-url">
-            (<%= link_to truncate(link.url, length: 30), link.url, target: :blank %>)
+            (<%= truncated_url_title(link) %>)
           </span>
           <p class='submit-info'>
             <small>Submitted <strong><%= time_ago_in_words(link.created_at) %> ago</strong></small>
