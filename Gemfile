@@ -17,7 +17,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'simple_form', '~> 3.5'
 gem 'record_tag_helper', '~> 1.0'
 gem 'font-awesome-rails'
-gem 'paperclip', '~> 4.3', '>= 4.3.6'
+gem 'paperclip', '~> 6.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
