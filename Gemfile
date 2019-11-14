@@ -14,7 +14,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jbuilder', '~> 2.5'
 gem "devise", ">= 4.7.1"
 gem 'acts_as_votable', '~> 0.10.0'
-gem 'simple_form', '~> 3.5'
+gem 'simple_form', '~> 5.0'
 gem 'record_tag_helper', '~> 1.0'
 gem 'font-awesome-rails'
 gem 'paperclip', '~> 6.0'
